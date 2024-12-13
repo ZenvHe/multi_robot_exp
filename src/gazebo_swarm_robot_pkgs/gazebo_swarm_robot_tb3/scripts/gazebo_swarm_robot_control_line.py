@@ -95,12 +95,13 @@ def main():
 
             ang_diff[i] = tar_theta[i] - cur_theta[i]
             
-            print(i, 'ang_diff', ang_diff[i])
+            #print(i, 'ang_diff', ang_diff[i])
                     
             ang_conv = np.all(np.abs(ang_diff) <= conv_ang)
-            print('ang_conv', ang_conv)
+            #print('ang_conv', ang_conv)
 
             if ang_conv:
+                print('ang_conv')
                 break 
             
             
@@ -108,7 +109,9 @@ def main():
                 w = k_w * ang_diff[i]
                 w = swarm_robot.check_vel(w, MAX_W, MIN_W)
                 swarm_robot.move_robot(i, 0, w)
-                print(i, 'w', w)
+                #print(i, 'w', w)
+            else:
+                swarm_robot.stop_robot(i)
  
         rospy.sleep(0.05)
 
@@ -126,12 +129,13 @@ def main():
                 (tar_y[i] - cur_y[i]) ** 2 + (tar_x[i] - cur_x[i]) ** 2
             )
 
-            print(i, 'pos_diff', pos_diff[i])
+            #print(i, 'pos_diff', pos_diff[i])
 
             pos_conv = np.all(pos_diff <= conv_pos)
-            print('pos_conv', pos_conv)
+            #print('pos_conv', pos_conv)
 
             if pos_conv:
+                print('pos_conv')
                 break
 
             if pos_diff[i] > conv_pos:
@@ -140,7 +144,9 @@ def main():
                 w = k_w * ang_diff[i]
                 w = swarm_robot.check_vel(w, MAX_W, MIN_W)
                 swarm_robot.move_robot(i, v, w)  
-                print(i, 'v', v, 'w', w) 
+                #print(i, 'v', v, 'w', w) 
+            else:
+                swarm_robot.stop_robot(i)
 
         rospy.sleep(0.05)
 
@@ -153,19 +159,22 @@ def main():
             
             ang_diff[i] = same_ang - cur_theta[i]
             
-            print(i, 'ang_diff', ang_diff[i])  
+            #print(i, 'ang_diff', ang_diff[i])  
             
             ang_same = np.all(np.abs(ang_diff) <= conv_ang)
-            print('ang_same', ang_same)
+            #print('ang_same', ang_same)
 
             if ang_same:
+                print('ang_same')
                 break
             
             if abs(ang_diff[i]) > conv_ang:
                 w = k_w * ang_diff[i]
                 w = swarm_robot.check_vel(w, MAX_W, MIN_W)
                 swarm_robot.move_robot(i, 0, w)
-                print(i, 'w', w)
+                #print(i, 'w', w)
+            else:
+                swarm_robot.stop_robot(i)
  
         rospy.sleep(0.05)        
             

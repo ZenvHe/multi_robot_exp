@@ -209,7 +209,7 @@ def main():
                 w = k_w * ang_diff[i]
                 w = swarm_robot.check_vel(w, MAX_W, 1e-5)
                 swarm_robot.move_robot(i, v, w)  
-                print(i, 'v', v, 'w', w) 
+                #print(i, 'v', v, 'w', w) 
             else:
                 swarm_robot.stop_robot(i)
 
@@ -323,7 +323,7 @@ def main():
                 w = k_w * ang_diff[i]
                 w = swarm_robot.check_vel(w, MAX_W, 1e-5)
                 swarm_robot.move_robot(i, v, w)  
-                print(i, 'v', v, 'w', w) 
+                #print(i, 'v', v, 'w', w) 
             else:
                 swarm_robot.stop_robot(i)
 
