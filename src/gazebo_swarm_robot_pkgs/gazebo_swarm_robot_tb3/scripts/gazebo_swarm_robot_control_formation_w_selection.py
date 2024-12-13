@@ -33,9 +33,10 @@ def main():
         ]
     )
 
-    scale = 1.0
+    scale_1 = .75
+    scale_2 = 1.0
 
-    x_ref_1 = scale * np.array(
+    x_ref_1 = scale_1 * np.array(
         [
             [-0.58778525, -0.80901699],
             [0.58778525, -0.80901699],
@@ -45,7 +46,7 @@ def main():
         ]
     )
 
-    x_ref_2 = scale * np.array(
+    x_ref_2 = scale_2 * np.array(
         [
             [-1.0, 0.0],
             [- .5,  .5],
