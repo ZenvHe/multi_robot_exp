@@ -9,7 +9,7 @@ def main():
     # 初始化节点
     rospy.init_node("swarm_robot_control_angle")
     # 机器人的id
-    index = [1, 2, 3, 4, 5]
+    index = [1, 2, 3, 4, 5, 6]
     # 建立对象
     swarm_robot = SwarmRobot(index)
     # 停止所有机器人
